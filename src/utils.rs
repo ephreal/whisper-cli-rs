@@ -48,6 +48,9 @@ pub async fn download_file(url: &str, path: &str) {
 
 pub fn format_timestamp(seconds: i64, always_include_hours: bool, decimal_marker: &str) -> String {
     assert!(seconds >= 0, "non-negative timestamp expected");
+
+    // For some reason, the "seconds" received are not actually in seconds.
+    // ie: 2 seconds is received as 200, not 2.
     let mut milliseconds = seconds * 10;
 
     let hours = div_floor(milliseconds, 3_600_000);

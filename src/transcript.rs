@@ -34,7 +34,7 @@ impl Transcript {
             .fold(String::new(), |transcript, fragment| {
                 transcript
                     + format!(
-                        "{} --> {}\n{}\n",
+                        "{} --> {}\n{}\n\n",
                         format_timestamp(fragment.start, false, "."),
                         format_timestamp(fragment.stop, false, "."),
                         fragment.text.trim().replace("-->", "->")
@@ -53,7 +53,7 @@ impl Transcript {
                     i + 1,
                     transcript
                         + format!(
-                            "\n{i}\n{} --> {}\n{}\n",
+                            "{i}\n{} --> {}\n{}\n\n",
                             format_timestamp(fragment.start, true, ","),
                             format_timestamp(fragment.stop, true, ","),
                             fragment.text.trim().replace("-->", "->")
