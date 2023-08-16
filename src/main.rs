@@ -64,7 +64,7 @@ async fn main() {
     );
     write_to(
         audio.with_file_name(format!("{file_name}.vtt")),
-        &transcript.as_vtt(),
+        &String::from(format!("WEBVTT\n\n{}", transcript.as_vtt())),
     );
     write_to(
         audio.with_file_name(format!("{file_name}.srt")),
